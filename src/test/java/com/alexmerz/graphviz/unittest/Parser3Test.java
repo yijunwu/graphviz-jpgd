@@ -19,8 +19,7 @@
 
 package com.alexmerz.graphviz.unittest;
 
-import java.io.File;
-import java.io.FileReader;
+import java.io.*;
 import java.util.ArrayList;
 
 import junit.framework.TestCase;
@@ -41,11 +40,12 @@ import com.alexmerz.graphviz.objects.Graph;
 public class Parser3Test extends TestCase {
     
 	public void testTest() throws ParseException {
-        FileReader in=null;        
+        Reader in=null;
         
         try {
-          	File f = new File( "testfiles/test.viz" );
-            in = new FileReader(f);
+            InputStream inputStream = this.getClass().getClassLoader()
+                    .getResourceAsStream("testfiles/test.viz");
+            in = new InputStreamReader(inputStream);
             Parser p = new Parser(in);
             Boolean b = p.parse(in);
             ArrayList<Graph> al =p.getGraphs();

@@ -21,8 +21,7 @@
 
 package com.alexmerz.graphviz.unittest;
 
-import java.io.File;
-import java.io.FileReader;
+import java.io.*;
 
 import junit.framework.TestCase;
 
@@ -42,10 +41,11 @@ import com.alexmerz.graphviz.Parser;
 public class Parser2Test extends TestCase {
 
 	public void testNodeEdge() throws ParseException {
-        FileReader in=null;
+        Reader in=null;
         try {
-        	File f = new File( "testfiles/NodeEdge.viz" );
-            in = new FileReader(f);
+            InputStream inputStream = this.getClass().getClassLoader()
+                    .getResourceAsStream("testfiles/NodeEdge.viz");
+            in = new InputStreamReader(inputStream);
             Parser p = new Parser(in);            
             assertTrue(p.parse(in));  
             
