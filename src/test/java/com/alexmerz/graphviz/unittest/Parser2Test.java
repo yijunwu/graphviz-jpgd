@@ -22,7 +22,9 @@
 package com.alexmerz.graphviz.unittest;
 
 import java.io.*;
+import java.util.ArrayList;
 
+import com.alexmerz.graphviz.objects.Graph;
 import junit.framework.TestCase;
 
 import com.alexmerz.graphviz.ParseException;
@@ -56,10 +58,11 @@ public class Parser2Test extends TestCase {
 	}
 	
 	public void testCluster() throws ParseException {
-        FileReader in=null;
+        Reader in=null;
         try {
-        	File f = new File( "testfiles/cluster.viz" );
-            in = new FileReader(f);
+            InputStream inputStream = this.getClass().getClassLoader()
+                    .getResourceAsStream("testfiles/cluster.viz");
+            in = new InputStreamReader(inputStream);
             Parser p = new Parser(in);
             assertTrue(p.parse(in));
             
@@ -70,10 +73,11 @@ public class Parser2Test extends TestCase {
 	}   
     
     public void testCrazy() throws ParseException {
-        FileReader in=null;
+        Reader in=null;
         try {
-          	File f = new File( "testfiles/crazy.viz" );
-            in = new FileReader(f);
+          	InputStream inputStream = this.getClass().getClassLoader()
+                    .getResourceAsStream("testfiles/crazy.viz");
+          	in = new InputStreamReader(inputStream);
             Parser p = new Parser(in);
             assertTrue(p.parse(in));                
         } catch (Exception e) {
@@ -83,10 +87,11 @@ public class Parser2Test extends TestCase {
 	}
     
     public void testDatastruct() throws ParseException {
-        FileReader in=null;
+        Reader in=null;
         try {
-          	File f = new File( "testfiles/datastruct.viz" );
-            in = new FileReader(f);
+            InputStream inputStream = this.getClass().getClassLoader()
+                    .getResourceAsStream("testfiles/datastruct.viz");
+            in = new InputStreamReader(inputStream);
             Parser p = new Parser(in);
             assertTrue(p.parse(in));                
         } catch (Exception e) {
@@ -96,10 +101,11 @@ public class Parser2Test extends TestCase {
 	}
     
     public void testFdpclust() throws ParseException {
-        FileReader in=null;
+        Reader in=null;
         try {
-          	File f = new File( "testfiles/fdpclust.viz" );
-            in = new FileReader(f);
+            InputStream inputStream = this.getClass().getClassLoader()
+                    .getResourceAsStream("testfiles/fdpclust.viz");
+            in = new InputStreamReader(inputStream);
             Parser p = new Parser(in);
             assertTrue(p.parse(in));                
         } catch (Exception e) {
@@ -109,10 +115,11 @@ public class Parser2Test extends TestCase {
 	}    
 
     public void testFSM() throws ParseException {
-        FileReader in=null;
+        Reader in=null;
         try {
-          	File f = new File( "testfiles/fsm.viz" );
-            in = new FileReader(f);
+            InputStream inputStream = this.getClass().getClassLoader()
+                    .getResourceAsStream("testfiles/fsm.viz");
+            in = new InputStreamReader(inputStream);
             Parser p = new Parser(in);
             assertTrue(p.parse(in));                
         } catch (Exception e) {
@@ -122,10 +129,11 @@ public class Parser2Test extends TestCase {
 	}
 
     public void testHello() throws ParseException {
-        FileReader in=null;
+        Reader in=null;
         try {
-          	File f = new File( "testfiles/hello.viz" );
-            in = new FileReader(f);
+            InputStream inputStream = this.getClass().getClassLoader()
+                    .getResourceAsStream("testfiles/hello.viz");
+            in = new InputStreamReader(inputStream);
             Parser p = new Parser(in);
             assertTrue(p.parse(in));                
         } catch (Exception e) {
@@ -135,10 +143,11 @@ public class Parser2Test extends TestCase {
 	}
    
     public void testInet() throws ParseException {
-        FileReader in=null;
+        Reader in=null;
         try {
-          	File f = new File( "testfiles/inet.viz" );
-            in = new FileReader(f);
+            InputStream inputStream = this.getClass().getClassLoader()
+                    .getResourceAsStream("testfiles/inet.viz");
+            in = new InputStreamReader(inputStream);
             Parser p = new Parser(in);
             assertTrue(p.parse(in));                
         } catch (Exception e) {
@@ -150,10 +159,11 @@ public class Parser2Test extends TestCase {
     
        
     public void testProcess() throws ParseException {
-        FileReader in=null;
+        Reader in=null;
         try {
-          	File f = new File( "testfiles/process.viz" );
-            in = new FileReader(f);
+            InputStream inputStream = this.getClass().getClassLoader()
+                    .getResourceAsStream("testfiles/process.viz");
+            in = new InputStreamReader(inputStream);
             Parser p = new Parser(in);
             assertTrue(p.parse(in));                
         } catch (Exception e) {
@@ -163,10 +173,11 @@ public class Parser2Test extends TestCase {
 	}
 
     public void testProfile() throws ParseException {
-        FileReader in=null;
+        Reader in=null;
         try {
-          	File f = new File( "testfiles/profile.viz" );
-            in = new FileReader(f);
+            InputStream inputStream = this.getClass().getClassLoader()
+                    .getResourceAsStream("testfiles/profile.viz");
+            in = new InputStreamReader(inputStream);
             Parser p = new Parser(in);
             assertTrue(p.parse(in));                
         } catch (Exception e) {
@@ -176,10 +187,11 @@ public class Parser2Test extends TestCase {
 	}
 
     public void testSdh() throws ParseException {
-        FileReader in=null;
+        Reader in=null;
         try {
-          	File f = new File( "testfiles/sdh.viz" );
-            in = new FileReader(f);
+            InputStream inputStream = this.getClass().getClassLoader()
+                    .getResourceAsStream("testfiles/sdh.viz");
+            in = new InputStreamReader(inputStream);
             Parser p = new Parser(in);
             assertTrue(p.parse(in));                
         } catch (Exception e) {
@@ -191,10 +203,11 @@ public class Parser2Test extends TestCase {
 
     
     public void testSoftmain() throws ParseException {
-        FileReader in=null;
+        Reader in=null;
         try {
-          	File f = new File( "testfiles/softmain.viz" );
-            in = new FileReader(f);
+            InputStream inputStream = this.getClass().getClassLoader()
+                    .getResourceAsStream("testfiles/softmain.viz");
+            in = new InputStreamReader(inputStream);
             Parser p = new Parser(in);
             assertTrue(p.parse(in));                
         } catch (Exception e) {
@@ -204,10 +217,11 @@ public class Parser2Test extends TestCase {
 	}
 
     public void testSwitch() throws ParseException {
-        FileReader in=null;
+        Reader in=null;
         try {
-          	File f = new File( "testfiles/switch.viz" );
-            in = new FileReader(f);
+            InputStream inputStream = this.getClass().getClassLoader()
+                    .getResourceAsStream("testfiles/switch.viz");
+            in = new InputStreamReader(inputStream);
             Parser p = new Parser(in);
             assertTrue(p.parse(in));                
         } catch (Exception e) {
@@ -218,10 +232,11 @@ public class Parser2Test extends TestCase {
 
     
     public void testTransparency() throws ParseException {
-        FileReader in=null;
+        Reader in=null;
         try {
-          	File f = new File( "testfiles/transparency.viz" );
-            in = new FileReader(f);
+            InputStream inputStream = this.getClass().getClassLoader()
+                    .getResourceAsStream("testfiles/transparency.viz");
+            in = new InputStreamReader(inputStream);
             Parser p = new Parser(in);
             assertTrue(p.parse(in));                
         } catch (Exception e) {
@@ -232,10 +247,11 @@ public class Parser2Test extends TestCase {
 
     
     public void testUnix() throws ParseException {
-        FileReader in=null;
+        Reader in=null;
         try {
-          	File f = new File( "testfiles/unix.viz" );
-            in = new FileReader(f);
+            InputStream inputStream = this.getClass().getClassLoader()
+                    .getResourceAsStream("testfiles/unix.viz");
+            in = new InputStreamReader(inputStream);
             Parser p = new Parser(in);
             assertTrue(p.parse(in));                
         } catch (Exception e) {
@@ -245,10 +261,11 @@ public class Parser2Test extends TestCase {
 	}    
     
     public void testWorld() throws ParseException {
-        FileReader in=null;
+        Reader in=null;
         try {
-          	File f = new File( "testfiles/world.viz" );
-            in = new FileReader(f);
+            InputStream inputStream = this.getClass().getClassLoader()
+                    .getResourceAsStream("testfiles/world.viz");
+            in = new InputStreamReader(inputStream);
             Parser p = new Parser(in);
             assertTrue(p.parse(in));                
         } catch (Exception e) {
