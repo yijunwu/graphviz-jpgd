@@ -6,7 +6,7 @@
 
     <groupId>com.alexmerz</groupId>
     <artifactId>graphviz-jpgd</artifactId>
-    <version>1.0</version>
+    <version>0.8.7</version>
 
     <dependencies>
         <dependency>
