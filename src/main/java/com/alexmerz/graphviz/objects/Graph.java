@@ -19,6 +19,8 @@
 
 package com.alexmerz.graphviz.objects;
 
+import com.alexmerz.graphviz.Helper;
+
 import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.Hashtable;
@@ -252,20 +254,29 @@ public class Graph {
 	public void setStrict(boolean isStrict) {
 		this.strictgraph = isStrict;
 	}
-	
+
 	/**
 	 * Returns a String representation of the graph
 	 * @return the string representation
 	 */
+	@Override
 	public String toString() {
+		return toString(null);
+	}
+
+	public String toString(String head) {
 		StringBuffer r = new StringBuffer();
 		if(isStrict()) {
 			r.append("strict ");
 		}
-		if(DIRECTED == getType()) {
-			r.append("digraph ");
+		if (head != null) {
+			r.append(head).append(" ");
 		} else {
-			r.append("graph ");
+			if (DIRECTED == getType()) {
+				r.append("digraph ");
+			} else {
+				r.append("graph ");
+			}
 		}
 		if(!id.getId().equals("")) {
 			r.append(id.getId());
@@ -281,9 +292,9 @@ public class Graph {
 				k = e.nextElement();
 				r.append(k);
 				String attr = attributes.get(k);
-				if(!attr.equals("")) {
+				{
 					r.append("=");
-					if(!attr.contains(" ") && !attr.contains(",")) {
+					if(!Helper.needsQuote(attr)) {
 						r.append(attr);
 					} else {
 						r.append("\"");
@@ -303,9 +314,9 @@ public class Graph {
 				k = e.nextElement();
 				r.append(k);
 				String attr = genericNodeAttributes.get(k);
-				if(!attr.equals("")) {
+				{
 					r.append("=");
-					if(!attr.contains(" ") && !attr.contains(",")) {
+					if(!Helper.needsQuote(attr)) {
 						r.append(attr);
 					} else {
 						r.append("\"");
@@ -327,9 +338,9 @@ public class Graph {
 				k = e.nextElement();
 				r.append(k);
 				String attr = genericEdgeAttributes.get(k);
-				if(!attr.equals("")) {
+				{
 					r.append("=");
-					if(!attr.contains(" ") && !attr.contains(",")) {
+					if(!Helper.needsQuote(attr)) {
 						r.append(attr);
 					} else {
 						r.append("\"");
@@ -351,9 +362,9 @@ public class Graph {
 				k = e.nextElement();
 				r.append(k);
 				String attr = genericGraphAttributes.get(k);
-				if(!attr.equals("")) {
+				{
 					r.append("=");
-					if(!attr.contains(" ") && !attr.contains(",")) {
+					if(!Helper.needsQuote(attr)) {
 						r.append(attr);
 					} else {
 						r.append("\"");
@@ -378,7 +389,14 @@ public class Graph {
 		}
 		if(graphs.size()>0) {
 			for(int i=0; i<graphs.size(); i++) {
-				r.append(graphs.get(i).toString());
+				Graph graph = graphs.get(i);
+				String gHead;
+				if (graph.getId().getId().startsWith("cluster") || graph.getId().getId().startsWith("rankAligner")) {
+					gHead = "subgraph";
+				} else {
+					gHead = null;
+				}
+				r.append(graph.toString(gHead));
 				r.append("\n");
 			}
 		}		

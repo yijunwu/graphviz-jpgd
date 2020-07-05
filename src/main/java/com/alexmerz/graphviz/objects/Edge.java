@@ -20,6 +20,8 @@
 
 package com.alexmerz.graphviz.objects;
 
+import com.alexmerz.graphviz.Helper;
+
 import java.util.Enumeration;
 import java.util.Hashtable;
 
@@ -177,13 +179,14 @@ public class Edge {
 			while(e.hasMoreElements()) {
 				String k = e.nextElement();
 				r.append(k);
-				if(!attributes.get(k).equals("")) {
+				{
 					r.append("=");
-					if(-1 == attributes.get(k).indexOf(" ")) {
-						r.append(attributes.get(k));
+					String attr = attributes.get(k);
+					if(!Helper.needsQuote(attr)) {
+						r.append(attr);
 					} else {
 						r.append("\"");
-						r.append(attributes.get(k));
+						r.append(attr);
 						r.append("\"");					
 					}
 				}

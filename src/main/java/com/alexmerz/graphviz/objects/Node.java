@@ -19,6 +19,8 @@
 
 package com.alexmerz.graphviz.objects;
 
+import com.alexmerz.graphviz.Helper;
+
 import java.util.Enumeration;
 import java.util.Hashtable;
 
@@ -85,9 +87,9 @@ public class Node {
 			while(e.hasMoreElements()) {
 				String k = e.nextElement();
 				r.append(k);
-				if(!attr.get(k).equals("")) {
+				{
 					r.append("=");
-					if(-1 == attr.get(k).indexOf(" ")) {
+					if(!Helper.needsQuote(attr.get(k))) {
 						r.append(attr.get(k));
 					} else {
 						r.append("\"");
