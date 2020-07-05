@@ -280,13 +280,14 @@ public class Graph {
 			while(e.hasMoreElements()) {
 				k = e.nextElement();
 				r.append(k);
-				if(!attributes.get(k).equals("")) {
+				String attr = attributes.get(k);
+				if(!attr.equals("")) {
 					r.append("=");
-					if(-1 == attributes.get(k).indexOf(" ")) {
-						r.append(attributes.get(k));
+					if(!attr.contains(" ") && !attr.contains(",")) {
+						r.append(attr);
 					} else {
 						r.append("\"");
-						r.append(attributes.get(k));
+						r.append(attr);
 						r.append("\"");					
 					}					
 				}
@@ -301,13 +302,14 @@ public class Graph {
 			while(e.hasMoreElements()) {
 				k = e.nextElement();
 				r.append(k);
-				if(!genericNodeAttributes.get(k).equals("")) {				
+				String attr = genericNodeAttributes.get(k);
+				if(!attr.equals("")) {
 					r.append("=");
-					if(-1 == genericNodeAttributes.get(k).indexOf(" ")) {
-						r.append(genericNodeAttributes.get(k));
+					if(!attr.contains(" ") && !attr.contains(",")) {
+						r.append(attr);
 					} else {
 						r.append("\"");
-						r.append(genericNodeAttributes.get(k));
+						r.append(attr);
 						r.append("\"");					
 					}			
 				}
@@ -324,13 +326,14 @@ public class Graph {
 			while(e.hasMoreElements()) {
 				k = e.nextElement();
 				r.append(k);
-				if(!genericEdgeAttributes.get(k).equals("")) {				
+				String attr = genericEdgeAttributes.get(k);
+				if(!attr.equals("")) {
 					r.append("=");
-					if(-1 == genericEdgeAttributes.get(k).indexOf(" ")) {
-						r.append(genericEdgeAttributes.get(k));
+					if(!attr.contains(" ") && !attr.contains(",")) {
+						r.append(attr);
 					} else {
 						r.append("\"");
-						r.append(genericEdgeAttributes.get(k));
+						r.append(attr);
 						r.append("\"");					
 					}			
 				}
@@ -347,13 +350,14 @@ public class Graph {
 			while(e.hasMoreElements()) {
 				k = e.nextElement();
 				r.append(k);
-				if(!genericGraphAttributes.get(k).equals("")) {				
+				String attr = genericGraphAttributes.get(k);
+				if(!attr.equals("")) {
 					r.append("=");
-					if(-1 == genericGraphAttributes.get(k).indexOf(" ")) {
-						r.append(genericGraphAttributes.get(k));
+					if(!attr.contains(" ") && !attr.contains(",")) {
+						r.append(attr);
 					} else {
 						r.append("\"");
-						r.append(genericGraphAttributes.get(k));
+						r.append(attr);
 						r.append("\"");					
 					}
 				}
